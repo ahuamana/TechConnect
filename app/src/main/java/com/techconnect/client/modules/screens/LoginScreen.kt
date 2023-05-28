@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -37,7 +38,7 @@ import com.techconnect.client.ui.theme.TechConnectTheme
 
 @Composable
 fun LoginScreen() {
-    val logoAnim by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.connect_globe))
+    val logoAnim by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.social_media_network))
 
     val lottieBackground by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.falling_stars_background))
 
@@ -88,7 +89,8 @@ fun LoginScreen() {
                     .padding(20.dp),
                     horizontalArrangement = Arrangement.Center) {
                     //Button
-                    Button(modifier = Modifier.fillMaxWidth().height(50.dp),
+                    Button(
+                        modifier = Modifier.fillMaxWidth().height(50.dp).alpha(0.8f),
                         onClick = { /*TODO*/ }) {
                         //content
                         //icon google svg
