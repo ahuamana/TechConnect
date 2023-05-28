@@ -41,7 +41,20 @@ val Typography = Typography(
         fontSize = 11.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
-    )
+    ),
+
+    labelMedium = TextStyle(
+        fontFamily = FontFamily(
+            Font(R.font.googlesans_regular),
+            Font(R.font.googlesans_medium, FontWeight.Medium),
+            Font(R.font.googlesans_bold, FontWeight.Bold)),
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.5.sp
+    ),
+
+
 
 )
 
