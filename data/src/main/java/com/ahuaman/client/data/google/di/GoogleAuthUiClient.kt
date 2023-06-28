@@ -12,7 +12,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.techconnect.client.domain.SignInResult
-import com.techconnect.client.domain.UserData
+import com.techconnect.client.domain.UserGoogle
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -48,7 +48,7 @@ class GoogleAuthUiClient (
                 val user = auth.signInWithCredential(googleCredentials).await().user
                 SignInResult(
                     data = user?.run {
-                        UserData(
+                        UserGoogle(
                             email = uid,
                             username = displayName,
                             profilePictureUrl = photoUrl?.toString()
@@ -76,12 +76,12 @@ class GoogleAuthUiClient (
         }
     }
 
-    fun getSignedInUser(): Flow<UserData?>{
+    fun getSignedInUser(): Flow<UserGoogle?>{
         val user = auth.currentUser
         return flow {
             emit(
                 user?.run {
-                    UserData(
+                    UserGoogle(
                         email = uid,
                         username = displayName,
                         profilePictureUrl = photoUrl?.toString()

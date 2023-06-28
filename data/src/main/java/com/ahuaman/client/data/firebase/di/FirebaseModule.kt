@@ -3,11 +3,13 @@ package com.ahuaman.client.data.firebase.di
 
 import com.ahuaman.client.data.firebase.remote.FirebaseRemoteDataSourceImpl
 import com.ahuaman.client.data.firebase.remote.FirebaseRemoteDataSource
+import com.ahuaman.client.data.firebase.repository.FirebaseRepository
 import com.ahuaman.client.data.firebase.repository.FirebaseRepositoryImpl
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,13 +38,15 @@ object FirebaseModule {
 @InstallIn(SingletonComponent::class)
 abstract class FirebaseModuleAbstract {
 
-    @UsersCollection
     @Singleton
-    @Provides
-    abstract fun provideRemoteDataSource(firebaseRemoteDataSourceImpl: FirebaseRemoteDataSourceImpl): FirebaseRemoteDataSource
+    @Binds
+    abstract fun provideRemoteDataSource(
+        firebaseRemoteDataSourceImpl: FirebaseRemoteDataSourceImpl
+    ): FirebaseRemoteDataSource
 
     @Singleton
-    @Provides
-    abstract fun provideRepository(remoteDataSource: FirebaseRepositoryImpl): FirebaseFirestore
+    @Binds
+    abstract fun provideRepository(
+        remoteDataSource: FirebaseRepositoryImpl): FirebaseRepository
 
 }

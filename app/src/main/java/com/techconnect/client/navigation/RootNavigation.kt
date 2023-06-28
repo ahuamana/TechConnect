@@ -6,7 +6,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.techconnect.client.domain.UserData
+import com.techconnect.client.domain.UserGoogle
 import com.techconnect.client.modules.dashboard.presentation.screens.DashboardScreen
 import com.techconnect.client.modules.home.HomeScreen
 import com.techconnect.client.modules.home.viewmodel.HomeViewModel
@@ -25,7 +25,7 @@ fun RootNavigation() {
             val homeNavController = rememberNavController()
             //arguments
             LaunchedEffect(key1 = it) {
-                val result = navController.currentBackStackEntry?.savedStateHandle?.get<UserData>("user")
+                val result = navController.currentBackStackEntry?.savedStateHandle?.get<UserGoogle>("user")
                 println("result userData : $result")
             }
 
@@ -34,7 +34,7 @@ fun RootNavigation() {
 
             HomeScreen(
                 navController = homeNavController,
-                userData = user
+                userGoogle = user
             )
         }
 

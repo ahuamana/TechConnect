@@ -1,11 +1,11 @@
 package com.techconnect.client.domain
 
 data class SignInResult(
-    val data: UserData?,
+    val data: UserGoogle?,
     val errorMessage:String?
 )
 
-data class UserData(
+data class UserGoogle(
     val email:String,
     val username:String?,
     val profilePictureUrl:String?,

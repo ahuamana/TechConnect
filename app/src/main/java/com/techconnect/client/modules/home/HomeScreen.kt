@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.techconnect.client.domain.UserData
+import com.techconnect.client.domain.UserGoogle
 import com.techconnect.client.modules.home.composables.Home
 import com.techconnect.client.modules.home.composables.TopBarCustom
 import com.techconnect.client.ui.theme.TechConnectTheme
@@ -18,7 +18,7 @@ import com.techconnect.client.ui.theme.TechConnectTheme
 @Composable
 fun HomeScreen(
     navController: NavHostController = rememberNavController(),
-    userData: UserData? = null
+    userGoogle: UserGoogle? = null
 ) {
     //val context = LocalContext.current
 
@@ -27,7 +27,7 @@ fun HomeScreen(
             TopBarCustom()
         },
         content = {
-            Home(navController = navController, userData = userData)
+            Home(navController = navController, userGoogle = userGoogle)
         }
     )
 }

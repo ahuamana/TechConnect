@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ahuaman.client.usecases.GetUserSignedInfoUseCase
-import com.techconnect.client.domain.UserData
+import com.techconnect.client.domain.UserGoogle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
@@ -21,8 +21,8 @@ class HomeViewModel @Inject constructor(
 
 ){
 
-    private val _userData = mutableStateOf<UserData?>(UserData())
-    val user: State<UserData?> = _userData
+    private val _userGoogle = mutableStateOf<UserGoogle?>(UserGoogle())
+    val user: State<UserGoogle?> = _userGoogle
 
     init {
         getSignedInUser()
@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
                 // emit loading state
             }.onEach {
                 // emit data state
-                _userData.value = it
+                _userGoogle.value = it
             }.catch {
                 // emit error state
             }.launchIn(viewModelScope)

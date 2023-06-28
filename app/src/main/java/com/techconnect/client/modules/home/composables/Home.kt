@@ -17,12 +17,12 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.techconnect.client.R
-import com.techconnect.client.domain.UserData
+import com.techconnect.client.domain.UserGoogle
 
 @Composable
 fun Home(
     navController: NavController,
-    userData: UserData? = null
+    userGoogle: UserGoogle? = null
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column {
